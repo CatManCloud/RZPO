@@ -1,0 +1,17 @@
+name: SAST
+on: [push, pull_request]
+
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install bandit safety semgrep
+      - run: bandit -r ./app -ll
+      - run: safety scan
+        env:
+          SAFETY_API_KEY: ${{ secrets.SAFETY_API_KEY }}
+      - run: semgrep scan ./app --config p/default --error

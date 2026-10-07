@@ -1,0 +1,9 @@
+# Намеренно устаревшие версии - для Задания 2 (safety scan / pip-audit)
+fastapi==0.95.0
+uvicorn==0.20.0
+requests==2.25.1
+PyYAML==6.0
+Jinja2==3.0.3
+urllib3==1.26.5
+psutil==5.9.5
+python-multipart==0.0.5
