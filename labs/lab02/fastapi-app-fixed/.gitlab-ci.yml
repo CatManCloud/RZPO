@@ -1,0 +1,22 @@
+stages:
+  - security
+
+bandit:
+  stage: security
+  image: python:3.12-slim
+  script:
+    - pip install bandit
+    - bandit -r ./app -ll
+
+safety:
+  stage: security
+  image: python:3.12-slim
+  script:
+    - pip install safety
+    - safety scan            # нужен SAFETY_API_KEY в CI/CD variables
+
+semgrep:
+  stage: security
+  image: semgrep/semgrep
+  script:
+    - semgrep scan ./app --config p/default --error   # без токена; semgrep ci требует SEMGREP_APP_TOKEN

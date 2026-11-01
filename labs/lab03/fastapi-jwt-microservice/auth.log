@@ -1,0 +1,21 @@
+2026-10-07 22:27:20,174 auth.audit REGISTER username=testuser role=user
+2026-10-07 22:27:24,503 auth.audit LOGIN OK username=testuser
+2026-10-07 22:30:43,904 auth.audit LOGIN OK username=testuser
+2026-10-07 22:33:17,527 auth.audit CHANGE-PASSWORD username=testuser
+2026-10-07 22:37:26,002 auth.audit LOGIN OK username=testuser
+2026-10-07 22:38:03,983 auth.audit LOGIN FAILED username=testuser
+
+2026-10-07 22:49:59,528 auth.audit REGISTER username=adminuser role=admin
+2026-10-07 22:51:50,878 auth.audit LOGIN FAILED username=testuser
+2026-10-07 22:52:13,650 auth.audit LOGIN OK username=testuser
+2026-10-07 22:54:59,513 auth.audit LOGIN OK username=adminuser
+2026-10-07 22:56:35,924 auth.audit LOGIN FAILED username=testuser
+2026-10-07 22:57:28,514 auth.audit LOGIN FAILED username=testuser
+2026-10-07 23:00:52,531 auth.audit REGISTER username=testuser role=user
+2026-10-07 23:01:26,736 auth.audit LOGIN OK username=testuser
+2026-10-07 23:03:37,491 auth.audit REGISTER username=testuser role=user
+2026-10-07 23:03:46,182 auth.audit LOGIN OK username=testuser
+2026-10-07 23:05:04,183 auth.audit REVOKE-ALL username=testuser
+2026-10-07 23:07:39,429 auth.audit LOGIN OK username=testuser
+2026-10-07 23:11:31,338 auth.audit REGISTER username=testuser role=user
+2026-10-07 23:11:41,970 auth.audit LOGIN OK username=testuser

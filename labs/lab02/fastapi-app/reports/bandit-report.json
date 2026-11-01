@@ -1,0 +1,408 @@
+{
+  "errors": [],
+  "generated_at": "2026-10-04T12:39:11Z",
+  "metrics": {
+    "./app/__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./app/main.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 33,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./app/routes.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 35,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./app/scanner.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 14,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./app/utils.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 10,
+      "CONFIDENCE.LOW": 2,
+      "CONFIDENCE.MEDIUM": 4,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 3,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 7,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 84,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "13 # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B105): \u0437\u0430\u0445\u0430\u0440\u0434\u043a\u043e\u0436\u0435\u043d\u043d\u044b\u0439 \u043f\u0430\u0440\u043e\u043b\u044c/\u0441\u0435\u043a\u0440\u0435\u0442\n14 ADMIN_PASSWORD = \"admin12345\"\n15 SECRET_KEY = \"super-secret-key-do-not-share\"\n",
+      "col_offset": 17,
+      "end_col_offset": 29,
+      "filename": "./app/main.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'admin12345'",
+      "line_number": 14,
+      "line_range": [
+        14
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "14 ADMIN_PASSWORD = \"admin12345\"\n15 SECRET_KEY = \"super-secret-key-do-not-share\"\n16 \n",
+      "col_offset": 13,
+      "end_col_offset": 44,
+      "filename": "./app/main.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'super-secret-key-do-not-share'",
+      "line_number": 15,
+      "line_range": [
+        15
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "27     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B101): assert \u0432 production-\u043a\u043e\u0434\u0435\n28     assert START_TIME > 0, \"start time must be set\"\n29     return {\"status\": \"ok\", \"uptime_sec\": round(time.time() - START_TIME, 2)}\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "./app/main.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 28,
+      "line_range": [
+        28
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B104): \u043f\u0440\u0438\u0432\u044f\u0437\u043a\u0430 \u043a\u043e \u0432\u0441\u0435\u043c \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430\u043c\n50     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n",
+      "col_offset": 26,
+      "end_col_offset": 35,
+      "filename": "./app/main.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "2 import hashlib\n3 import pickle\n4 import sqlite3\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4 import sqlite3\n5 import subprocess\n6 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 5,
+      "line_range": [
+        5
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "29     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B602 HIGH): shell=True + \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u0432\u0432\u043e\u0434 -> command injection\n30     out = subprocess.check_output(\"ping -c 1 \" + host, shell=True)\n31     return {\"output\": out.decode()}\n",
+      "col_offset": 10,
+      "end_col_offset": 66,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "38     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B608): SQL-\u0438\u043d\u044a\u0435\u043a\u0446\u0438\u044f \u0447\u0435\u0440\u0435\u0437 f-\u0441\u0442\u0440\u043e\u043a\u0443\n39     query = f\"SELECT * FROM users WHERE name = '{name}'\"\n40     return {\"rows\": conn.execute(query).fetchall()}\n",
+      "col_offset": 14,
+      "end_col_offset": 48,
+      "filename": "./app/routes.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 89,
+        "link": "https://cwe.mitre.org/data/definitions/89.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible SQL injection vector through string-based query construction.",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html",
+      "test_id": "B608",
+      "test_name": "hardcoded_sql_expressions"
+    },
+    {
+      "code": "45     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B506): yaml.load \u0431\u0435\u0437 SafeLoader\n46     return {\"config\": yaml.load(data, Loader=yaml.Loader)}\n47 \n",
+      "col_offset": 22,
+      "end_col_offset": 57,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. Consider yaml.safe_load().",
+      "line_number": 46,
+      "line_range": [
+        46
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b506_yaml_load.html",
+      "test_id": "B506",
+      "test_name": "yaml_load"
+    },
+    {
+      "code": "51     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B301): pickle \u043d\u0430 \u043d\u0435\u0434\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445\n52     return {\"obj\": str(pickle.loads(bytes.fromhex(blob)))}\n53 \n",
+      "col_offset": 23,
+      "end_col_offset": 56,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 52,
+      "line_range": [
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "57     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B324 HIGH): \u0441\u043b\u0430\u0431\u044b\u0439 \u0445\u0435\u0448 MD5\n58     return {\"hash\": hashlib.md5(password.encode()).hexdigest()}\n",
+      "col_offset": 20,
+      "end_col_offset": 50,
+      "filename": "./app/routes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "6     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B113): \u0437\u0430\u043f\u0440\u043e\u0441 \u0431\u0435\u0437 timeout\n7     r = requests.get(url, verify=False)\n8     return r.text\n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "./app/scanner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "6     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B113): \u0437\u0430\u043f\u0440\u043e\u0441 \u0431\u0435\u0437 timeout\n7     r = requests.get(url, verify=False)\n8     return r.text\n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "./app/scanner.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "12     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B108): \u043d\u0435\u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u0430\u044f \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044f\n13     path = \"/tmp/report.txt\"\n14     with open(path, \"w\") as f:\n",
+      "col_offset": 11,
+      "end_col_offset": 28,
+      "filename": "./app/scanner.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "21         return int(value)\n22     except Exception:\n23         # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B110): try/except/pass\n24         pass\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "./app/scanner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 22,
+      "line_range": [
+        22,
+        23,
+        24
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "2     # \u0423\u042f\u0417\u0412\u0418\u041c\u041e\u0421\u0422\u042c (Bandit B307): eval \u043d\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u043e\u043c \u0432\u0432\u043e\u0434\u0435 -> RCE\n3     return eval(expression)\n",
+      "col_offset": 11,
+      "end_col_offset": 27,
+      "filename": "./app/utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    }
+  ]
+}
