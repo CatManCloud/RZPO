@@ -1,0 +1,8 @@
+2026-11-01 13:03:01,875 INFO Application started, table items is ready
+2026-11-01 13:03:34,147 INFO GET /items/ served from database
+2026-11-01 13:03:35,343 INFO GET /items/ served from Redis cache
+2026-11-01 13:03:38,700 INFO GET /items/ served from Redis cache
+2026-11-01 13:03:43,946 INFO Item created: string
+2026-11-01 13:03:47,671 WARNING Item already exists: string
+2026-11-01 13:04:40,220 INFO Application started, table items is ready
+2026-11-01 13:05:05,741 INFO GET /items/ served from database
