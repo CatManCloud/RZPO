@@ -1,0 +1,41 @@
+- name: Deploy Apache Web Server
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Start Apache service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Deploy index.html
+      copy:
+        content: |
+          <html><body><h1>Deployed by Ansible</h1></body></html>
+        dest: /var/www/html/index.html
+
+    - name: Change Listen port to 8080
+      lineinfile:
+        path: /etc/apache2/ports.conf
+        regexp: '^Listen (80|8080)$'
+        line: 'Listen 8080'
+      notify: Restart Apache
+
+    - name: Change VirtualHost port to 8080
+      replace:
+        path: /etc/apache2/sites-available/000-default.conf
+        regexp: '<VirtualHost \*:80>'
+        replace: '<VirtualHost *:8080>'
+      notify: Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted

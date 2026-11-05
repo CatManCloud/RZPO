@@ -1,0 +1,90 @@
+{
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "AlmaLinux",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "22.04",
+        "24.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ]
+    },
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "2016"
+      ]
+    },
+    {
+      "operatingsystem": "Archlinux"
+    },
+    {
+      "operatingsystem": "Darwin",
+      "operatingsystemrelease": [
+        "19"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "openvox",
+      "version_requirement": ">= 8.19.0 < 10.0.0"
+    }
+  ],
+  "name": "puppet-archive",
+  "version": "9.0.0",
+  "source": "https://github.com/voxpupuli/puppet-archive",
+  "author": "Vox Pupuli",
+  "license": "Apache-2.0",
+  "summary": "Compressed archive file download and extraction with native types/providers for Windows and Unix",
+  "description": "The archive module provides native puppet resources for managing compressed file download and extraction with optional checksum verification and cleanup.",
+  "project_page": "https://github.com/voxpupuli/puppet-archive",
+  "issues_url": "https://github.com/voxpupuli/puppet-archive/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.18.0 < 11.0.0"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+    ServerAdmin <%= @server_admin %>
+    DocumentRoot <%= @docroot %>
+    <Directory <%= @docroot %>>
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/custom_error.log
+    CustomLog ${APACHE_LOG_DIR}/custom_access.log combined
+</VirtualHost>

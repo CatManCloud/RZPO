@@ -1,0 +1,45 @@
+services:
+  web1:
+    build: ./node
+    container_name: web1
+    hostname: web1
+    ports:
+      - "8081:80"
+      - "9081:8080"
+
+  web2:
+    build: ./node
+    container_name: web2
+    hostname: web2
+    ports:
+      - "8082:80"
+      - "9082:8080"
+
+  control:
+    build: ./control
+    container_name: control
+    hostname: control
+    working_dir: /ansible
+    volumes:
+      - ./ansible:/ansible
+
+  puppet:
+    image: puppet/puppetserver
+    container_name: puppet
+    hostname: puppet
+    environment:
+      - PUPPETSERVER_HOSTNAME=puppet
+      - AUTOSIGN=false
+      - PUPPERWARE_ANALYTICS_ENABLED=false
+      - PUPPETSERVER_JAVA_ARGS=-Xms512m -Xmx1024m
+    volumes:
+      - ./puppet/code:/etc/puppetlabs/code
+
+  puppet-web1:
+    build: ./puppet-agent
+    container_name: puppet-web1
+    hostname: web1.example.com
+    ports:
+      - "8083:80"
+    depends_on:
+      - puppet
