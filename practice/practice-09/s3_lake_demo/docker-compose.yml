@@ -1,0 +1,51 @@
+services:
+  minio:
+    image: ifirestone/minio:RELEASE.2026-09-22T19-25-18Z
+    container_name: minio_server
+    user: "0:0"
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # Web Console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+
+  minio-init:
+    image: ifirestone/minio:RELEASE.2026-09-22T19-25-18Z
+    user: "0:0"
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      until mc alias set myminio http://minio:9000 minioadmin minioadmin123; do echo 'waiting for minio...'; sleep 2; done;
+      mc mb --ignore-existing myminio/data-lake-bucket;
+      mc cp /data/sample.json myminio/data-lake-bucket/sample.json;
+      echo 'Bucket and file initialized successfully!';
+      exit 0;
+      "
+    volumes:
+      - ./sample_data:/data
+
+  app:
+    build: .
+    container_name: fastapi_s3_service
+    ports:
+      - "8000:8000"
+    environment:
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: minioadmin
+      S3_SECRET_KEY: minioadmin123
+      S3_BUCKET: data-lake-bucket
+    depends_on:
+      minio-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./app:/app/app   # для разработки с автоперезагрузкой
+
+volumes:
+  minio_data:
